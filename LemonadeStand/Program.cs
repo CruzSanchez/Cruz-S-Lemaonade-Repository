@@ -6,27 +6,20 @@ namespace LemonadeStand
     {
 		static void Main(string[] args)
 		{
+			LemonadeStand newUserStand = new LemonadeStand();
+			
 
 			Console.WriteLine("Hello! Seems you would like to start a lemonade stand. What would you like to name it?");
-			var lemonadeStandName = Console.ReadLine(); // Variable for stand name
-			while (lemonadeStandName == "")
-			{
-				for (int i = 0; i < lemonadeStandName.Length; i++)
-				{
-					Console.WriteLine("A business must have a name. Please enter a name for your business.");
-					lemonadeStandName = Console.ReadLine();
-				}
-
-			}
-
-			Console.WriteLine("Ahhhh yes! " + lemonadeStandName + " thats a great name!");
+			newUserStand.standName = Console.ReadLine();
+			
+			Console.WriteLine("Ahhhh yes! " + newUserStand.standName + " thats a great name!");
 			Console.WriteLine();
 
 
 			Console.WriteLine("Well we will need some basic information, like how many cups of lemonade you plan to sell?");
 
-			int cupsOfLemonade = Int32.Parse(Console.ReadLine()); // Variable for cups to sell converted to an int.
-			if (cupsOfLemonade < 25)
+			newUserStand.numOfCups = Int32.Parse(Console.ReadLine()); // Variable for cups to sell converted to an int.
+			if (newUserStand.numOfCups < 25)
 			{
 				Console.WriteLine("Well thats a pretty low number. Your loss I suppose.");
 			}
@@ -36,10 +29,10 @@ namespace LemonadeStand
 			}
 
 			Console.WriteLine();
-			Console.WriteLine("So how much will they cost?");
+			Console.WriteLine("So how much will you sell them for?");
 
-			decimal buyerPrice = Decimal.Parse(Console.ReadLine()); // Variable for price to sell to customers converted to an decimal.	
-			if(buyerPrice > 2.5m)
+			newUserStand.customerPrice = decimal.Parse(Console.ReadLine()); // Variable for price to sell to customers converted to an decimal.	
+			if(newUserStand.customerPrice > 2.5m)
 			{
 				Console.WriteLine("You might want to reconsider, thats highway robbery, but hey it's your bussiness.");
 			}
@@ -50,14 +43,15 @@ namespace LemonadeStand
 			Console.WriteLine();
 			Console.WriteLine("How much does it cost you to make the lemonade??");
 
-			decimal userCost = Decimal.Parse(Console.ReadLine()); // Variable for the users cost converted to decimal.
-			if(userCost >= buyerPrice)
+			newUserStand.sellerCost = decimal.Parse(Console.ReadLine()); // Variable for the users cost converted to decimal.
+			if(newUserStand.sellerCost >= newUserStand.customerPrice)
 			{
 				Console.WriteLine("I can already tell this won't end well....");
 			}
 
 			Console.WriteLine();
-			decimal totalRevenue = buyerPrice * cupsOfLemonade - userCost * cupsOfLemonade;
+			decimal totalRevenue = newUserStand.numOfCups * newUserStand.customerPrice - newUserStand.numOfCups * newUserStand.sellerCost;
+			
 			Console.WriteLine("Well if I calculate that all together, this is how much cash you'll be making! " + totalRevenue);
 			Console.WriteLine();
 			if (totalRevenue > 0)
