@@ -10,7 +10,7 @@ namespace LemonadeStand
 			Console.WriteLine("Lets open some lemonade stands, how many would you like to open?");
 			int numofstands = int.Parse(Console.ReadLine());
 
-			List<LemonadeStand> stands = new List<LemonadeStand>();
+			LemonadeHQ LemonCorp = new LemonadeHQ();
 
 			for (int i = 0; i < numofstands; i++)
 			{
@@ -25,6 +25,7 @@ namespace LemonadeStand
 				Console.WriteLine("What will your price to sell the lemonade be?");
 				newstand.customerPrice = decimal.Parse(Console.ReadLine());
 
+
 				Console.WriteLine("How much does it cost you to make the lemonade");
 				newstand.sellerCost = decimal.Parse(Console.ReadLine());
 
@@ -32,8 +33,12 @@ namespace LemonadeStand
 				Console.WriteLine("The stands total expenses are: " + newstand.getTotalExpense());
 				Console.WriteLine("Your total profit of " + newstand.standName + " is " + newstand.getTotalProfit());
 
-				stands.Add(newstand);
+				LemonCorp.Locations.Add(newstand);
 			}
+
+			Console.WriteLine("Total revenue of all stores is: " + LemonCorp.CorperationRevenue());
+			Console.WriteLine("Total expense of all stores is: " + LemonCorp.CorperationExpenses());
+			Console.WriteLine("Total profit of all stores is: " + LemonCorp.CorperationProfit());
 
 			Console.ReadLine();
 
