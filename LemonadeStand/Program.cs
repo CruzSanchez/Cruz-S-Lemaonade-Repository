@@ -7,40 +7,8 @@ namespace LemonadeStand
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Lets open some lemonade stands, how many would you like to open?");
-			int numofstands = int.Parse(Console.ReadLine());
-
-			LemonadeHQ LemonCorp = new LemonadeHQ();
-
-			for (int i = 0; i < numofstands; i++)
-			{
-				LemonadeStand newstand = new LemonadeStand();
-
-				Console.WriteLine("What is the name of location " + (i + 1) + "?");
-				newstand.standName = Console.ReadLine();
-
-				Console.WriteLine("How many cups will this location sell?");
-				newstand.numOfCups = int.Parse(Console.ReadLine());
-
-				Console.WriteLine("What will your price to sell the lemonade be?");
-				newstand.customerPrice = decimal.Parse(Console.ReadLine());
-
-
-				Console.WriteLine("How much does it cost you to make the lemonade");
-				newstand.sellerCost = decimal.Parse(Console.ReadLine());
-
-				Console.WriteLine("This stands total revenue will be: " + newstand.getTotalRevenue());
-				Console.WriteLine("The stands total expenses are: " + newstand.getTotalExpense());
-				Console.WriteLine("Your total profit of " + newstand.standName + " is " + newstand.getTotalProfit());
-
-				LemonCorp.Locations.Add(newstand);
-			}
-
-			Console.WriteLine("Total revenue of all stores is: " + LemonCorp.CorperationRevenue());
-			Console.WriteLine("Total expense of all stores is: " + LemonCorp.CorperationExpenses());
-			Console.WriteLine("Total profit of all stores is: " + LemonCorp.CorperationProfit());
-
-			Console.ReadLine();
+			LemonadeStand.makeNewStand();			
+			
 
 		}
 	}

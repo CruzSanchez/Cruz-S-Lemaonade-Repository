@@ -9,7 +9,6 @@ namespace LemonadeStand
 		public string Name { get; set; }
 		public List<LemonadeStand> Locations { get; set; } = new List<LemonadeStand>();
 
-
 		public decimal CorperationRevenue()
 		{
 			decimal grandRevenue = 0;
@@ -25,7 +24,7 @@ namespace LemonadeStand
 		public decimal CorperationExpenses()
 		{
 			decimal grandExpense = 0;
-			foreach(LemonadeStand location in Locations)
+			foreach (LemonadeStand location in Locations)
 			{
 				grandExpense += location.getTotalExpense();
 			}
@@ -35,11 +34,13 @@ namespace LemonadeStand
 		public decimal CorperationProfit()
 		{
 			decimal grandProfit = 0;
-			foreach(LemonadeStand location in Locations)
+			foreach (LemonadeStand location in Locations)
 			{
 				grandProfit += location.getTotalProfit();
 			}
 			return grandProfit;
+
 		}
+
 	}
 }
