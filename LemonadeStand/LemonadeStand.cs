@@ -29,7 +29,7 @@ namespace LemonadeStand
 			return getTotalRevenue() - getTotalExpense();
 		}
 
-		public static void makeNewStand()
+		public static void makeLemonStands()
 		{
 			Console.WriteLine("Lets open some lemonade stands, how many would you like to open?");
 			int numofstands = int.Parse(Console.ReadLine());
@@ -59,11 +59,7 @@ namespace LemonadeStand
 
 				LemonCorp.Locations.Add(newstand);
 			}
-
-			Console.WriteLine("Total revenue of all stores is: " + LemonCorp.CorperationRevenue());
-			Console.WriteLine("Total expense of all stores is: " + LemonCorp.CorperationExpenses());
-			Console.WriteLine("Total profit of all stores is: " + LemonCorp.CorperationProfit());
-			Console.WriteLine("Press enter to continue.");
+			LemonCorp.LemonCashReport();
 		}
 
 

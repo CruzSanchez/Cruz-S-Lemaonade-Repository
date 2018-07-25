@@ -7,9 +7,8 @@ namespace LemonadeStand
 	{
 		static void Main(string[] args)
 		{
-			LemonadeStand.makeNewStand();			
-			
-
+			LemonadeStand.makeLemonStands();
+			PopcicleStand.makePopStands(); 
 		}
 	}
 }
