@@ -7,8 +7,13 @@ namespace LemonadeStand
 	{
 		static void Main(string[] args)
 		{
-			LemonadeStand.makeLemonStands();
-			PopcicleStand.makePopStands(); 
+			RefreshmentsHQ Corp = new RefreshmentsHQ();
+			Corp.makeLemonStands();
+			Corp.LemonCashReport();
+			Corp.makePopStands();
+			Corp.PopCashReport();
+			Corp.FinishParagraph();
+			
 		}
 	}
 }
