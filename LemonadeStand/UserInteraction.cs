@@ -6,37 +6,39 @@ namespace LemonadeStand
 {
     class UserInteraction
     {
+        private delegate bool TryParse<T>(string text, out T value);
+
+        private static T getUserInput<T>(string question, string retryPrompt, TryParse<T> func)
+        {
+            Console.WriteLine(question);
+
+            T response;
+            while(!func(Console.ReadLine(), out response))
+            {
+                Console.WriteLine(retryPrompt + question);
+            }
+
+            return response;
+        }
 
 		public static int GetUserInputInt(string question)
 		{
-			Console.WriteLine(question);
-
-			int Response;
-			bool IsParsed = int.TryParse(Console.ReadLine(), out Response);
-
-			while(IsParsed == false)
-			{
-				Console.WriteLine("That wasn't the right input." + question);
-				IsParsed = int.TryParse(Console.ReadLine(), out Response);
-			}
-			return Response;
-			
+            return getUserInput<int>(question, "That wasn't the right input. ", int.TryParse);			
 		}
 
 		public static decimal GetUserInputDecimal(string question)
 		{
+            // return getUserInput<decimal>(question, "That wasn't the right input. ", decimal.TryParse);
+
 			Console.WriteLine(question);
 
 			decimal Response;
-			bool IsParsed = decimal.TryParse(Console.ReadLine(), out Response);
-
-			while (IsParsed == false)
+			while (!decimal.TryParse(Console.ReadLine(), out Response))
 			{
 				Console.WriteLine("That wasn't the right input." + question);
-				IsParsed = decimal.TryParse(Console.ReadLine(), out Response);
 			}
-			return Response;
 
+			return Response;
 		}
 	}
 }
